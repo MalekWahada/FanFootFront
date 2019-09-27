@@ -1,0 +1,182 @@
+<!-- Register Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-signup">
+        <div class="modal-content">
+            <div class="card card-signup card-plain">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i
+                            class="material-icons">clear</i></button>
+                    <h2 class="modal-title card-title text-center" id="myModalLabel">Register</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+
+                        <!-- socila logins -->
+                        <div class="social text-center">
+                            <button class="btn btn-just-icon btn-round btn-twitter">
+                                <i class="fa fa-twitter" style="font-size:15px"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-round btn-dribbble">
+                                <i class="fa fa-dribbble"></i>
+                            </button>
+                            <button class="btn btn-just-icon btn-round btn-facebook">
+                                <i class="fa fa-facebook-square" style="font-size:15px"></i>
+                            </button>
+                            <h4> or be classical </h4>
+                        </div>
+                        <form class="form" [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+                            <div class="col-md-5 col-md-offset-1">
+                                <!-- from inputs -->
+                                <div class="input-group required">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                        <input formControlName="UserName" type="text" class="form-control"
+                                            placeholder="User Name...">
+                                        <label class="text-danger"
+                                            *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This
+                                            field is mandatory.</label>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        <input formControlName="Email" type="text" class="form-control"
+                                            placeholder="Email...">
+                                        <label class="text-danger"
+                                            *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Invalid
+                                            email address.</label>
+
+                                    </div>
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                        <my-date-picker formControlName="BirthDate" name="mydate" [options]="myDatePickerOptions">
+
+                                        </my-date-picker>
+                                    </div>
+
+
+
+                                <div class="col-md-3 col-sm-4">
+                                    <h4><small>Picture</small></h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-circle img-raised">
+                                            <img src="assets/img/placeholder.jpg" alt="...">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-circle img-raised">
+                                        </div>
+                                        <div>
+                                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                                <span class="fileinput-new">Add Photo</span>
+                                                <span class="fileinput-exists">Change</span>
+                                                <input type="file" name="..." /></span>
+                                            <br />
+                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
+                                                data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <div class="col-md-5">
+
+
+
+                                <div class="card-content">
+                                    
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+                                        <input formControlName="FullName" type="text" class="form-control"
+                                            placeholder="Full Name...">
+
+
+                                    </div>
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+
+                                        
+                                        <select formControlName="Gender"  class="selectpicker" data-style="select-with-transition">
+                                            <option disabled> Choose Gender</option>
+                                            <option *ngFor="let Gender of Genders1" [ngValue]="Gender.Id">{{Gender.Name}} </option>
+                                        </select>
+                                    </div> 
+
+
+
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">face</i>
+                                        </span>
+
+                                        
+                                        <select formControlName="FavoriteTeam"  class="selectpicker" data-style="select-with-transition">
+                                            <option disabled> Choose your Favorite Team</option>
+                                            <option *ngFor="let favTeam of FavTeams" [ngValue]="favTeam.Id">{{favTeam.Name}} </option>
+                                        </select>
+                                    </div> 
+
+                                    <div formGroupName="Passwords">
+                                        <div class="input-group required">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <input formControlName="Password" type="password" placeholder="Password..."
+                                                class="form-control" />
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This
+                                                field is mandatory.</label>
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum
+                                                4 characters required.</label>
+                                        </div>
+
+                                        <div class="input-group required">
+                                            <span class="input-group-addon">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                            <input formControlName="ConfirmPassword" type="password"
+                                                placeholder="Confirm Password..." class="form-control" />
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This
+                                                field is mandatory.</label>
+                                            <label class="text-danger"
+                                                *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm
+                                                Password does not match.</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- If you want to add a checkbox to this form, uncomment this code -->
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="optionsCheckboxes" checked>
+                                            I agree to the <a href="#something">terms and conditions</a>.
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="modal-footer text-center">
+                                    <button type="submit" [disabled]="!service.formModel.valid"
+                                        class="btn btn-primary btn-round">Sign Up</button>
+                                </div>
+
+                            </div>
+                            </form>
+                    </div>
+
+               
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Modal -->
+

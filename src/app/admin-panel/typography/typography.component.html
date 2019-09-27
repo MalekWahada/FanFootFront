@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+              <div class="row">
+                      <div class="col-md-12">
+                          <h4>Shopping Cart Table</h4>
+                      </div>
+                      <div class="col-md-10 col-md-offset-1">
+                          <div class="table-responsive">
+                          <table class="table table-shopping">
+                              <thead>
+                                  <tr>
+                                      <th class="text-center"></th>
+                                      <th>Product</th>
+                                      <th class="th-description">Color</th>
+                                      <th class="th-description">Size</th>
+                                      <th class="text-right">Price</th>
+                                      <th class="text-right">Qty</th>
+                                      <th class="text-right">added date</th>
+                                      <th class="text-right">Action</th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                              <tbody *ngFor="let produit of listProduit">
+                                  
+                                  <tr>
+                                      <td>
+                                          <div class="img-container">
+                                              <img src="assets/img/product1.jpg" alt="...">
+                                          </div>
+                                      </td>
+                                      <td class="td-name">
+                                          <a href="#jacket"></a>
+                                          <br><small>{{produit.name}}</small>
+                                      </td>
+                                      <td>
+                                          {{produit.color}}
+                                      </td>
+                                      <td [ngSwitch]="produit.size">
+                                         <div *ngSwitchCase="4"> XXL</div>
+                                         <div *ngSwitchCase="1"> S</div>
+                                         <div *ngSwitchCase="2"> M</div>
+                                         <div *ngSwitchCase="3"> XL</div>
+                                      </td>
+                                      <td class="td-number">
+                                          <small>€</small>{{produit.price}}
+                                      </td>
+                                      <td class="td-number">
+                                          {{produit.quantite}}
+                                         
+                                      </td>
+                                      <td class="td-number">
+                                          {{produit.addate}}
+                                      </td>
+                                      <td class="td-actions">
+                                          <button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-simple" data-original-title="Remove item">
+                                              <i class="material-icons">delete</i>
+                                          </button>
+                                      </td>
+                                  </tr>
+                              
+                              </tbody>
+                              
+                          </table>
+                          </div>
+  
+                      </div>
+                  </div>
+          </div>
+      </div>
+  </div>
+  

@@ -1,0 +1,446 @@
+<app-header-visitor *ngIf="headerVisitor"></app-header-visitor>
+<app-header *ngIf="headerLoggedIn"></app-header>
+<!--     *********    BLOG CARDS     *********      -->
+
+<div class="cards">
+
+    <div>
+        <select multiple="true" class="selectpicker" data-style="select-with-transition">
+            <option disabled> Choose your Favorite Team</option>
+            <option *ngFor="let favTeam of FavTeams" [ngValue]="favTeam.Id">
+                <!-- <input type="checkbox" value="{{favTeam.Id}}" [(ngModel)]="favTeam.checked">-->
+                <img style="width: 25px; height: 25px;" src="\assets\img\teams\{{favTeam.Name}}.png">
+                {{favTeam.Name}}
+            </option>
+        </select></div>
+
+    <div class="container">
+        <div class="title">
+            <h2>Check latest News of Top Leagues</h2>
+            <h3>Sky Sports</h3>
+        </div>
+        <div class="row">
+            <!--   collllllllllllllllll   11111111111111111-->
+            <div class="col-md-4">
+
+
+                <div *ngFor="let new of news; let i = index">
+                    <div *ngIf="i%3 === 0 && new.descreption!=null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/card-blog2.jpg" />
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <h6 class="category text-success">Legal</h6>
+
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <p class="card-description">
+                                {{new.descreption}} ...
+                            </p>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 0 && new.descreption==null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/blog8.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 0 && new.descreption==null && new.image==null" class="card">
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/christian.jpg" alt="..." class="avatar img-raised">
+                                        <span>Lord Alex</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">favorite</i> 342 &middot;
+                                    <i class="material-icons">chat_bubble</i> 45
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--   collllllllllllllllll   222222222222222222222222222-->
+
+            <div class="col-md-4">
+                <div *ngFor="let new of news; let i = index">
+
+                    <div *ngIf="i%3 === 1 && new.descreption!=null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/card-blog2.jpg" />
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <h6 class="category text-success">Legal</h6>
+
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <p class="card-description">
+                                {{new.descreption}} ...
+                            </p>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 1 && new.descreption==null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/blog8.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 1 && new.descreption==null && new.image==null" class="card">
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/christian.jpg" alt="..." class="avatar img-raised">
+                                        <span>Lord Alex</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">favorite</i> 342 &middot;
+                                    <i class="material-icons">chat_bubble</i> 45
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--   collllllllllllllllll   333333333333333333333333333-->
+
+            <div class="col-md-4">
+                <div *ngFor="let new of news; let i = index">
+
+                    <div *ngIf="i%3 === 2 && new.descreption!=null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/card-blog2.jpg" />
+                            </a>
+                        </div>
+
+                        <div class="card-content">
+                            <h6 class="category text-success">Legal</h6>
+
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <p class="card-description">
+                                {{new.descreption}} ...
+                            </p>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 2 && new.descreption==null && new.image!=null" class="card card-blog">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img" src="assets/img/examples/blog8.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                        <span>Mike John</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">schedule</i> 5 min read
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="i%3 === 2 && new.descreption==null && new.image==null" class="card">
+                        <div class="card-content">
+                            <h6 class="category text-danger">
+                                <i class="material-icons">trending_up</i> Trending
+                            </h6>
+                            <h4 class="card-title">
+                                <a href="#pablo">{{new.title}}</a>
+                            </h4>
+                            <div class="footer">
+                                <div class="author">
+                                    <a href="#pablo">
+                                        <img src="assets/img/faces/christian.jpg" alt="..." class="avatar img-raised">
+                                        <span>Lord Alex</span>
+                                    </a>
+                                </div>
+                                <div class="stats">
+                                    <i class="material-icons">favorite</i> 342 &middot;
+                                    <i class="material-icons">chat_bubble</i> 45
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-image">
+                        <a href="#pablo">
+                            <img class="img" src="assets/img/examples/card-blog1.jpg" />
+                            <div class="card-title">
+                                This Summer Will be Awesome
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="card-content">
+                        <h6 class="category text-info">Fashion</h6>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content content-info">
+                        <h5 class="category-social">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </h5>
+                        <h4 class="card-title">
+                            <a href="#pablo">"You Don't Have to Sacrifice Joy to Build a Fabulous Business and Life"</a>
+                        </h4>
+                        <div class="footer">
+                            <div class="author">
+                                <a href="#pablo">
+                                    <img src="assets/img/faces/avatar.jpg" alt="..." class="avatar img-raised">
+                                    <span>Tania Andrew</span>
+                                </a>
+                            </div>
+                            <div class="stats">
+                                <i class="material-icons">favorite</i> 2.4K &middot;
+                                <i class="material-icons">share</i> 45
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-content">
+                        <h6 class="category text-danger">
+                            <i class="material-icons">trending_up</i> Trending
+                        </h6>
+                        <h4 class="card-title">
+                            <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+                        </h4>
+                        <div class="footer">
+                            <div class="author">
+                                <a href="#pablo">
+                                    <img src="assets/img/faces/christian.jpg" alt="..." class="avatar img-raised">
+                                    <span>Lord Alex</span>
+                                </a>
+                            </div>
+                            <div class="stats">
+                                <i class="material-icons">favorite</i> 342 &middot;
+                                <i class="material-icons">chat_bubble</i> 45
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="card card-blog">
+                    <div class="card-image">
+                        <a href="#pablo">
+                            <img class="img" src="assets/img/examples/card-blog2.jpg" />
+                        </a>
+                    </div>
+
+                    <div class="card-content">
+                        <h6 class="category text-success">Legal</h6>
+
+                        <h4 class="card-title">
+                            <a href="#pablo">5 Common Legal Mistakes That Can Trip-Up Your Startup</a>
+                        </h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <div class="footer">
+                            <div class="author">
+                                <a href="#pablo">
+                                    <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                    <span>Mike John</span>
+                                </a>
+                            </div>
+                            <div class="stats">
+                                <i class="material-icons">schedule</i> 5 min read
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+                <div class="card card-blog">
+                    <div class="card-image">
+                        <a href="#pablo">
+                            <img class="img" src="assets/img/examples/blog8.jpg" />
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <h6 class="category text-danger">
+                            <i class="material-icons">trending_up</i> Trending
+                        </h6>
+                        <h4 class="card-title">
+                            <a href="#pablo">To Grow Your Business Start Focusing on Your Employees</a>
+                        </h4>
+                        <div class="footer">
+                            <div class="author">
+                                <a href="#pablo">
+                                    <img src="assets/img/faces/marc.jpg" alt="..." class="avatar img-raised">
+                                    <span>Mike John</span>
+                                </a>
+                            </div>
+                            <div class="stats">
+                                <i class="material-icons">schedule</i> 5 min read
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-content content-success">
+                        <h5 class="category-social">
+                            <i class="fa fa-newspaper-o"></i> TechCrunch
+                        </h5>
+                        <h4 class="card-title">
+                            <a href="#pablo">"Focus on Your Employees"</a>
+                        </h4>
+                        <p class="card-description">
+                            Don't be scared of the truth because we need to restart the human foundation in truth And I
+                            love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+                        </p>
+                        <div class="footer text-center">
+                            <a href="#pablo" class="btn btn-white btn-round">Read Article</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+
+    <div>{{message}}</div>
+
+</div>
+
+<!--     *********    END BLOG CARDS      *********      -->
+
+
+<app-footer></app-footer>

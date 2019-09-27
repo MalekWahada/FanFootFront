@@ -1,0 +1,322 @@
+<div class="main-content">
+       
+    <div class="container-fluid" style="padding-left: 100px">
+        <div class="row">
+            <div class="col-md-8">
+
+                <div class="row">
+                    <label class="switch">
+                        <input type="checkbox" (change)="hide()">
+                        <span class="slider round"></span>
+                    </label>
+                    <div style="margin-top: 4px;margin-left: 20px">
+                        <div *ngIf="!HideFormulaire">Quantity</div>
+                        <div *ngIf="HideFormulaire">Enchere</div>
+                    </div>
+
+                </div>
+                <div class="card" *ngIf="HideFormulaire">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Enchere Product</h4>
+                        <p class="card-category">Complete this Formular</p>
+                    </div>
+                    <div class="card-body" *ngIf="HideFormulaire">
+                      
+                      
+                      
+                      
+                      
+                        <form #form="ngForm" (submit)="onSubmit(form)">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Company (disabled)" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width" >
+                                        <input matInput name="name" #name="ngModel"
+                                            [(ngModel)]="service.formDataEncher.name" placeholder="name">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="startPrice" name="startPrice" #startPrice="ngModel"
+                                            [(ngModel)]="service.formDataEncher.startPrice" type="number">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="soldPrice" name="soldPrice" #soldPrice="ngModel"
+                                            [(ngModel)]="service.formDataEncher.soldPrice" type="number">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="description" name="description"
+                                            #description="ngModel" [(ngModel)]="service.formDataEncher.description">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div>
+                                    <div class="col-md-4">
+
+                                        <input placeholder="date" type="date" #limiteDate="ngModel" name="limiteDate"
+                                            [(ngModel)]="service.formDataEncher.limiteDate">
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="col-md-4">
+                                        
+
+                                        <input placeholder="date" type="date" #addate="ngModel" name="addate"
+                                            [(ngModel)]="service.formDataEncher.addate">
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group col-md-4">
+
+                                    <div class="col-lg-5 col-md-4 col-sm-3">
+                                        <div class="btn-group bootstrap-select"><button type="button"
+                                                class="dropdown-toggle bs-placeholder btn btn-primary btn-round"
+                                                data-toggle="dropdown" role="button" title="Choose city"
+                                                aria-expanded="false"><span class="filter-option pull-left">Choose
+                                                    city</span>&nbsp;<span class="bs-caret"><span
+                                                        class="caret"></span></span>
+                                                <div class="ripple-container"></div>
+                                            </button>
+                                            <div class="dropdown-menu open" role="combobox">
+                                                <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                                    <li data-original-index="1" class="disabled selected"><a
+                                                            tabindex="-1" class="" data-tokens="null" role="option"
+                                                            href="#" aria-disabled="true" aria-selected="true"><span
+                                                                class="text">Choose city</span><span
+                                                                class="material-icons check-mark">done</span></a></li>
+                                                    <li data-original-index="2"><a tabindex="0" class=""
+                                                            data-tokens="null" role="option" aria-disabled="false"
+                                                            aria-selected="false"><span class="text">Foobar</span><span
+                                                                class="material-icons check-mark">done</span></a></li>
+                                                    <li data-original-index="3"><a tabindex="0" class=""
+                                                            data-tokens="null" role="option" aria-disabled="false"
+                                                            aria-selected="false"><span class="text">Is
+                                                                great</span><span
+                                                                class="material-icons check-mark">done</span></a></li>
+                                                </ul>
+                                            </div><select class="selectpicker" data-style="btn btn-primary btn-round"
+                                                title="Single Select" data-size="7" tabindex="-98">
+                                                <option class="bs-title-option" value="">Single Select</option>
+                                                <option disabled="" selected="">Choose city</option>
+                                                <option value="2">Foobar</option>
+                                                <option value="3">Is great</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <select id="inputState" class="form-control" name="categorie" #categorie="ngModel"
+                                        [(ngModel)]="service.formDataEncher.categorie">
+                                        <option selected>Choose...</option>
+                                        <option value="Balls">Balls</option>
+                                        <option value="Tshirt">TShirts</option>
+                                        <option value="boots">Boots</option>
+                                    </select>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input style="display: none;" #inputFile (change)="fileSelected($event)"
+                                        placeholder="Fist Name" name="picture" #picture="ngModel"
+                                        [(ngModel)]="service.formDataEncher.picture" type="file">
+                                    <button mat-raised-button type="button" (click)="inputFile.click()"
+                                        class="btn btn-round">Pick File</button>
+                                </div>
+                            </div>
+
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update
+                                Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="card" *ngIf="!HideFormulaire">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Quantity Product</h4>
+                        <p class="card-category">Complete this Formular</p>
+                    </div>
+                    <div class="card-body" *ngIf="!HideFormulaire">
+                        
+                        
+                        
+                      
+                        
+
+
+
+
+
+
+
+                        
+                        <form #form1="ngForm" (submit)="onSubmitQ(form1)">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="WinAll (disabled)" disabled>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-5">
+                                        <mat-form-field appearance="outline" color="accent">
+                                                <mat-label>name</mat-label>
+                                                <input matInput required name="name" #name="ngModel"
+                                                [(ngModel)]="service.formData.name" >
+                                                <mat-hint>min 5 character</mat-hint>
+                                        </mat-form-field>
+
+                                   
+                                </div>
+                                
+                                <div class="col-md-4" >
+                                    <div>
+                                    <label style="margin-top: 40px">Quantity</label>
+                                </div>
+                                        <mat-slider 
+                                        style="width:500px;padding:40px;margin-left:140px"
+                                        thumbLabel
+                                        [displayWith]="formatLabel"
+                                        tickInterval="50"
+                                        min="1"
+                                        max="1000"  matInput placeholder="Quantity" name="quantite" #quantite="ngModel"
+                                        [(ngModel)]="service.formData.quantite"></mat-slider>
+                                    </div>
+                                    <div class="col-md-12">
+                                    <mat-form-field appearance="fill" color="yellow">
+                                            <mat-label>Description</mat-label>
+                                            <input matInput required  name="description"
+                                            #description="ngModel" [(ngModel)]="service.formData.description">
+                                            <mat-hint>min 150 character</mat-hint>
+                                        </mat-form-field>
+                                    </div>
+                              
+                                    
+                                
+                            </div>
+                            <div class="row" style="margin-top:20px">
+                         
+
+                                   
+                            
+
+                                <div class="form-group col-md-4">
+                                       
+                                  <mat-form-field  >
+                                        <mat-label>Categorie</mat-label>
+                                      <mat-select name="categorie" #categorie="ngModel"
+                                      [(ngModel)]="service.formData.categorie">
+                                       
+                                        <mat-option value="Balls">Balls</mat-option>
+                                        <mat-option value="Boots">Boots</mat-option>
+                                        <mat-option value="TShirt">TShirt</mat-option>
+                                        
+                                      </mat-select>
+                                  </mat-form-field>
+                            
+                                
+                                       
+                                        <mat-form-field >
+                                              <mat-label>Size</mat-label>
+                                            <mat-select  name="size" #size="ngModel"
+                                            [(ngModel)]="service.formData.size">
+                                             
+                                              <mat-option value="S">S</mat-option>
+                                              <mat-option value="M">M</mat-option>
+                                              <mat-option value="XL">XL</mat-option>
+                                              <mat-option value="XXL">XXL</mat-option>
+                                              
+                                            </mat-select>
+                                            </mat-form-field>
+                                       
+                                 
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+                                <mat-form-field class="col-md-4">
+                                    <mat-label>color</mat-label>
+                                    <input matInput  name="color" #color="ngModel"
+                                    [(ngModel)]="service.formData.color">
+                                </mat-form-field>
+                                <mat-form-field class="col-md-4">
+                                        <mat-label>Brand</mat-label>
+                                        <input matInput  name="brand" #brand="ngModel"
+                                        [(ngModel)]="service.formData.brand">
+                                    </mat-form-field>
+                            </div>
+                            <div class="row" style="margin-top:20px">
+                               
+                                <mat-form-field  class="col-md-4">
+                                    <mat-label>Price</mat-label>
+                                    <input matInput type="number"  name="price" #price="ngModel"
+                                    [(ngModel)]="service.formData.price">
+                                </mat-form-field>                               
+                        
+                                <mat-form-field  class="col-md-4" style="margin-left:150px">
+                                        <mat-label>priceAfterDiscount</mat-label>
+                                        <input matInput name="priceDiscount"
+                                        #priceAfterDiscount="ngModel" [(ngModel)]="service.formData.priceAfterDiscount">
+                                    </mat-form-field>
+                            </div>
+
+                            <div class="row" style="margin-top:20px">
+                            <div class="col-md-4">
+                                    <mat-form-field  >
+                                            <mat-label>Rating</mat-label>
+                                            <input name="rating" matInput
+                                            #rating="ngModel" [(ngModel)]="service.formData.rating">
+                                        </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-6">
+                                    <input style="display: none;" #inputFile (change)="fileSelected($event)"
+                                        placeholder="Fist Name" name="picture" #picture="ngModel"
+                                        [(ngModel)]="service.formData.picture" type="file">
+                                    <button mat-raised-button type="button" (click)="inputFile.click()"
+                                        class="btn btn-round">Pick File</button>
+                                </div>
+                            </div>
+
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right">Update
+                                Profile</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

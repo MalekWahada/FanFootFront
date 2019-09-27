@@ -1,0 +1,239 @@
+<app-header-visitor *ngIf="headerVisitor"></app-header-visitor>
+<app-header *ngIf="headerLoggedIn"></app-header>
+<br><br><br><br><br><br><br>
+
+<div class="main main-raised">
+	<button routerLink="/auction" routerLinkActive="active" rel="tooltip" class="btn btn-round">Auction</button>
+
+	<div class="section">
+		<div class="container">
+			<h2 class="section-title">Find what you need</h2>
+			<div class="row">
+				<!--   key filters -->
+				<div class="col-md-3">
+					<div class="card card-refine card-plain">
+						<div class="card-content">
+							<h4 class="card-title">
+								Refine
+								<button class="btn btn-default btn-fab btn-fab-mini btn-simple pull-right" rel="tooltip"
+									title="Reset Filter">
+									<i class="material-icons">cached</i>
+								</button>
+							</h4>
+						</div>
+						<div class="content">
+							<div class="panel-group" id="accordion">
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a data-toggle="collapse" href="#refinePrice">
+												Price Range
+												<i class="fa fa-caret-up pull-right"></i>
+											</a>
+										</h6>
+									</div>
+									<!--  filters -->
+									<ng5-slider (mouseup)="onFilterChange()" [(value)]="minValue"
+										[(highValue)]="maxValue" [options]="options"></ng5-slider>
+								</div>
+
+								<!-- Category Filter -->
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a data-toggle="collapse" href="#refineClothing" class="collapsed">
+												Category
+												<i class="fa fa-caret-up pull-right"></i>
+											</a>
+										</h6>
+									</div>
+									<div id="refineClothing" class="panel-collapse collapse">
+										<button class="btn">Reset Categories</button>
+										<div class="container1">
+											<ul class="ks-cboxtags">
+												<div *ngFor="let category of Categories">
+													<li><input class="checkBoxCatrgory" type="checkbox"
+															id="{{category.Id}}" value="Balls"
+															[(ngModel)]="category.checked"
+															(change)="onFilterChange()"><label
+															for="{{category.Id}}">{{category.Name}}</label></li> <br>
+												</div>
+
+											</ul>
+
+										</div>
+									</div>
+								</div>
+
+
+								<!-- color filter -->
+
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a data-toggle="collapse" href="#refineColour" class="collapsed">
+												Color
+												<i class="fa fa-caret-up pull-right"></i>
+											</a>
+										</h6>
+									</div>
+									<div id="refineColour" class="panel-collapse collapse">
+										<div class="panel-body">
+
+											<button class="btn">Reset Colors</button>
+
+											<div class="container1">
+												<ul class="ks-cboxtags">
+													<li *ngFor="let color of Colors"><input type="checkbox"
+															id="{{color.style}}" value="{{color.Id}}"
+															[(ngModel)]="color.checked" (change)="onFilterChange()">
+														<label for="{{color.style}}">{{color.Name}}</label></li>
+
+
+												</ul>
+
+											</div>
+
+
+										</div>
+									</div>
+								</div> <!-- end panel -->
+
+
+								<!--  brand Filter -->
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										<h6 class="panel-title">
+											<a data-toggle="collapse" href="#refineDesigner">
+												Designer
+												<i class="fa fa-caret-up pull-right"></i>
+											</a>
+										</h6>
+									</div>
+									<div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingThree">
+										<div class="panel-body">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" value="" data-toggle="checkbox" checked="">
+													All
+												</label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+												   	<input type="checkbox" value="" data-toggle="checkbox">
+													Polo Ralph Lauren
+												</label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+												   <input type="checkbox" value="" data-toggle="checkbox">
+												   Wooyoungmi
+												</label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" value="" data-toggle="checkbox">
+													Alexander McQueen
+												 </label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" value="" data-toggle="checkbox">
+													Tom Ford
+												</label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" value="" data-toggle="checkbox">
+													AMI
+												</label>
+											</div>
+
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" value="" data-toggle="checkbox">
+													Berena
+												</label>
+											</div>
+
+											
+
+									   </div>
+								   </div>
+								</div><!-- end panel -->
+
+
+
+							</div>
+						</div>
+					</div> <!-- end card -->
+				</div>
+
+
+
+
+				<div class="col-md-9">
+					<div class="row">
+						<div (click)="goToProd(prod.idProduit)" *ngFor="let prod of products" class="col-md-4">
+							<div class="card card-product card-plain no-shadow" data-colored-shadow="false">
+								<div class="card-image">
+									<a href="#">
+										<img src="../assets/img/examples/suit-1.jpg" alt="..." />
+									</a>
+								</div>
+								<div class="card-content">
+									<a href="#">
+										<h4 class="card-title">{{prod.name}}</h4>
+									</a>
+									<p class="description">
+										{{prod.description}}
+
+
+									</p>
+									.<br>
+									<div class="square" [ngStyle]="{'background-color': prod.color}"
+										style="display: inline-block;">
+									</div>
+									<div class="square square-Space"
+										style="background-color: blue; display: inline-block;"></div>
+									<div class="footer">
+										<div class="price-container">
+											<span class="price price-old"> &euro; {{prod.price}}</span>
+											<span class="price price-new"> &euro; {{prod.priceAfterDiscount}}</span>
+
+										</div>
+
+										<button
+											class="btn btn-rose btn-simple btn-fab btn-fab-mini btn-round pull-right"
+											rel="tooltip" title="Remove from wishlist" data-placement="left">
+											<i class="material-icons">favorite</i>
+										</button>
+									</div>
+								</div>
+							</div> <!-- end card -->
+						</div>
+						<div class="col-md-3 col-md-offset-4">
+							<button rel="tooltip" class="btn btn-rose btn-round">Load more...</button>
+					   </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<br><br><br><br><br><br><br>
+
+
+
+
+
+<app-footer></app-footer>

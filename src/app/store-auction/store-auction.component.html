@@ -1,0 +1,61 @@
+<app-header-visitor *ngIf="headerVisitor"></app-header-visitor>
+<app-header *ngIf="headerLoggedIn"></app-header>
+<br><br><br><br><br><br><br>
+
+
+
+
+<div class="main main-raised">
+    <button routerLink="/store" routerLinkActive="active" rel="tooltip" class="btn btn-round">Go To Store</button>
+
+    <div class="section">
+        <div class="container">
+            <h2 class="section-title">Latest Auctions</h2>
+            <div class="row">
+                <div *ngFor="let prod of products" class="col-md-4">
+                    <div (click)="ViewAuction(prod.idProduit)" class="card card-product card-plain">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img src="../assets/img/examples/gucci.jpg" alt="">
+                            </a>
+                            <div class="colored-shadow"
+                                style="background-image: url(&quot;../assets/img/examples/gucci.jpg&quot;); opacity: 1;">
+                            </div>
+                            <div class="ripple-container"></div>
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title">
+                                <a href="#pablo">{{prod.name}}</a>
+                            </h4>
+                            <p class="card-description">{{prod.description}}</p> <br>
+                            <!--<p hidden [class.inactive]="setTime(prod.limiteDate)"></p>-->
+                           <!-- <p>{{ setTime(prod.limiteDate)}}</p>
+                            <p>{{message}}</p>-->
+                            <countdown-timer *ngIf="checkTendTime(prod.limiteDate)" [end]="prod.limiteDate"></countdown-timer>
+                            <p *ngIf="!checkTendTime(prod.limiteDate)">Expired ...</p>
+                            <div class="footer">
+                                <div class="price-container">
+                                    <span class="price price-new"> €{{prod.startPrice}}</span>
+                                </div>
+
+                                <div class="stats">
+                                    <button type="button" rel="tooltip" title=""
+                                        class="btn btn-just-icon btn-simple btn-rose"
+                                        data-original-title="Saved to Wishlist">
+                                        <i class="material-icons">favorite</i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<br><br><br><br><br><br><br>
+<app-footer></app-footer>

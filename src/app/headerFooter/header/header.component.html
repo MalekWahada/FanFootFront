@@ -1,0 +1,112 @@
+<style>
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #5e214e;
+    }
+</style>
+
+
+<!--   style for drop down store   -->
+<header>
+    <nav class="navbar navbar-inverse" role="navigation-demo">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#pablo">Logo FanFoot later ...</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navigation-example-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li *ngIf="ro"><a routerLink='/adminpanel' routerLinkActive="active">Admin Panel</a></li>
+                    <li><a routerLink="/home1" routerLinkActive="active">Home</a></li>
+                    <li><a routerLink="/news1" routerLinkActive="active"> News</a></li>
+                    <li><a routerLink="/store" routerLinkActive="active">Store</a></li>
+                    <li><a routerLink="#" routerLinkActive="active">Wishlist</a></li>
+
+                    <li>
+                           
+                        <a routerLink="/myCart" routerLinkActive="active"
+                            class="btn btn-rose btn-raised btn-fab btn-fab-mini btn-tooltip" data-toggle="tooltip">
+                            <i class="fa fa-shopping-cart" style="font-size:15px"></i>
+                        </a>
+                       
+                    </li>
+
+                    <li>
+                        <a href="#pablo" class="btn btn-rose btn-raised btn-fab btn-fab-mini" data-toggle="dropdown">
+                            <i class="material-icons">email</i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
+                            <div class="profile-photo-small">
+                                <img src="assets/img/faces/avatar.jpg" alt="Circle Image"
+                                    class="img-circle img-responsive">
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">
+                                Dropdown header
+                            </li>
+                            <li>
+                                <a *ngIf="userDetails" href="#pablo">{{userDetails.fullName}}</a>
+                            </li>
+                            <li>
+                                <a routerLink="/settings" routerLinkActive="active">Settings and other stuff</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a (click)="onLogout()">Log out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-->
+    </nav>
+    <!--            end inverse navbar -->
+
+
+
+</header>

@@ -1,0 +1,63 @@
+<header>
+    <nav class="navbar navbar-inverse" role="navigation-demo">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Logo FanFoot later ...</a>
+          </div>
+    
+      <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navigation-example-2">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a routerLink='/home' routerLinkActive="active">Home</a></li>
+                <li><a routerLink='/news' routerLinkActive="active"> News</a></li>
+                <li><a routerLink='/store' routerLinkActive="active">Store</a></li>
+                <li><a routerLink="#" routerLinkActive="active">Wishlist</a></li>
+    
+                <li>
+                        <a routerLink='/myCart' routerLinkActive="active" class="btn btn-rose btn-raised btn-fab btn-fab-mini" data-toggle="dropdown">
+                            <i class="fa fa-shopping-cart" style="font-size:15px"></i>
+                        </a>
+                  </li>
+
+                <li>
+                        
+                                <button class="btn btn-raised btn-round btn-default btn-block" data-toggle="modal" data-target="#loginModal">
+                                    <i class="material-icons">account_circle</i>
+                                    Login
+                                </button>
+                            
+                </li>
+               <li>
+                        
+                                <button class="btn btn-raised btn-round btn-default btn-block" data-toggle="modal" data-target="#signupModal">
+                                    <i class="material-icons">assignment</i>
+                                    SignUp
+                                </button>
+                            
+
+                </li>
+                
+             </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-->
+      </nav>
+    <!--            end inverse navbar -->
+    
+    
+    
+    </header>
+    
+    <app-register></app-register>
+    <app-login></app-login>
+    
+        
+        
+
+

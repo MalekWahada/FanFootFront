@@ -1,0 +1,30 @@
+<div class="col-md-8 col-md-offset-2">
+    <h4><small>Simple With Actions</small></h4>
+        <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Auction Product Name</th>
+                    <th>Offrer Name</th>
+                    <th>Since</th>
+                    <th class="text-right">Max Offer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prode of productsAuctions; let i = index" [attr.data-index]="i">
+                    <td class="text-center">{{i+1}}</td>
+                    <td>{{prode.name}}</td>
+                    <td>{{prode.userName}}</td>
+                    <td>{{prode.offerDate}}</td>
+                    <td class="text-right">€ {{prode.offerPrice}}</td>
+                    
+                </tr>
+                
+            </tbody>
+        </table>
+        </div>
+
+        
+
+    </div>

@@ -1,0 +1,16 @@
+.dot {
+    height: 25px;
+    width: 25px;
+    /*background-color: #bbb;*/
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .square {
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+  }
+  .square-Space{
+    margin-left: 10px;
+
+  }
